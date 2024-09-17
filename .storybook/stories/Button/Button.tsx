@@ -8,21 +8,10 @@ export type MyButtonProps = {
 export const MyButton = ({onPress, text}: MyButtonProps) => {
   return (
     <TouchableOpacity
-      style={styles.container}
       onPress={onPress}
       activeOpacity={0.8}
-      className="mt-10">
-      <Text style={styles.text}>{text}</Text>
+      className="bg-primary-default h-10">
+      <Text className="text-primary-inverse">{text}</Text>
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    backgroundColor: 'purple',
-    borderRadius: 8,
-  },
-  text: {color: 'white'},
-});

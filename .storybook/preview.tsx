@@ -1,6 +1,9 @@
-import type { Preview } from '@storybook/react';
+import {View} from 'react-native';
+import {ThemeProvider} from '../src/providers/ThemeProviders';
+import {CustomTheme} from '../src/utils/color-theme';
 
-const preview: Preview = {
+/** @type{import("@storybook/react").Preview} */
+const preview = {
   parameters: {
     controls: {
       matchers: {
@@ -9,6 +12,19 @@ const preview: Preview = {
       },
     },
   },
+
+  decorators: [
+    (Story, {parameters}) => (
+      <ThemeProvider>
+        <View
+          style={{
+            padding: 8,
+          }}>
+          <Story />
+        </View>
+      </ThemeProvider>
+    ),
+  ],
 };
 
 export default preview;
